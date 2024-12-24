@@ -4,6 +4,10 @@ set dotenv-load
 echo:
 	echo $CARGO_TARGET_DIR
 
+build:
+	just build-wasm calculator
+
+
 #cargo build -p {{crate}} --example {{example}} --target wasm32-unknown-unknown {{args}}
 build-wasm example *args:
 	cargo build --example {{example}} --target wasm32-unknown-unknown {{args}}
@@ -12,4 +16,8 @@ build-wasm example *args:
 	--out-name bindgen \
 	--target web \
 	$CARGO_TARGET_DIR/wasm32-unknown-unknown/debug/examples/{{example}}.wasm
-# --no-typescript \
+	just copy-wasm
+
+copy-wasm:
+	rm -rf ../calculator-astro/wasm
+	cp -rf ./html/wasm ../calculator-astro

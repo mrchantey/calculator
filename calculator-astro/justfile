@@ -1,0 +1,6 @@
+set windows-shell := ["C:/tools/cygwin/bin/sh.exe","-c"]
+set dotenv-load
+
+
+run:
+	deno task dev

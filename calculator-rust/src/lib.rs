@@ -20,3 +20,9 @@ pub fn foo(a: u32, b: u32, c: u32) -> u32 {
     a + b + c
     // alert(&format!("Hello, {}!", name));
 }
+
+#[wasm_bindgen]
+/// it adds
+pub fn add(a: u32, b: u32) -> u32 {
+    a + b
+}
