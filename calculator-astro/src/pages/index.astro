@@ -1,9 +1,9 @@
 ---
-import init, { add } from "../../wasm/bindgen";
+import { WasmUtils } from "../utils/WasmUtils"
 
-let _result = await init();
-let addition = add(1, 2);
-console.log("the value is", addition);
+
+WasmUtils.run()
+
 ---
 
 <!doctype html>
@@ -17,16 +17,11 @@ console.log("the value is", addition);
 	</head>
 	<body>
 		<script>
-			console.log("wip!");
-			import init, { add } from "../../wasm/bindgen"
-			
-			let _result = await init();
-			let addition = add(1, 2);
-			console.log("the value is", addition);
+			import { WasmUtils } from "../utils/WasmUtils"
+			WasmUtils.run()
 		</script>
 		<div>
 			<h1>Calculator</h1>
-			<button>Click me {addition}</button>
 			<nav>
 				<a href="/">Home</a>
 				<a href="/calculator">Calculator</a>
